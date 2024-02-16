@@ -1,0 +1,135 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+ul {
+    list-style-type: none;
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 50px;
+
+    .list-editor {
+        width: 600px;
+
+        &-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .addBtn {
+                background-image: url('./svg/add.svg');
+                background-position: center;
+                width: 16px;
+                height: 16px;
+                background-repeat: no-repeat;
+                background-color: transparent;
+                border: none;
+            }
+        }
+
+        .list {
+            display: flex;
+            flex-direction: column;
+            gap:16px;
+            margin-top: 42px;
+
+            &-titles, &-content .list-item {
+                display: flex;
+                align-items: center;
+            }
+
+            &-titles div, &-content .list-item div {
+                width: calc(100% / 3);
+            }
+
+            .list-item button {
+                background-color: transparent;
+                border: none;
+            }
+        }
+    }
+}
+
+.popup-wrapper {
+    position: fixed;
+    z-index: -100;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.8);
+    opacity: 0;
+    transition: opacity 0.6s;
+
+    &.active {
+        opacity: 1;
+        z-index: 1;
+    }
+
+    #popup-form {
+        display: flex;
+        flex-direction: column;
+        gap: 36px;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 24px 36px;
+        border: 1px solid grey;
+        border-radius: 20px;
+
+
+        label {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 8px;
+            position: relative;
+            padding-bottom: 32px;
+
+            input {
+                border-radius: 20px;
+                border: 1px solid grey;
+                padding: 16px;
+
+                &.invalid-input {
+                    border-color: red;
+                }
+            }
+
+            .invalid {
+                position: absolute;
+                bottom: 0;
+                font-size: 12px;
+                color: red;
+
+            }
+        }
+
+        .btns {
+            display: flex;
+            justify-content: flex-end;
+            gap: 16px;
+
+            button {
+                padding: 8px 16px;
+                border: 1px solid grey;
+                border-radius: 20px;
+                font-family: Arial, Helvetica, sans-serif;
+                background-color: transparent;
+
+                &:hover {
+                    color: white;
+                    background-color: gray;
+                }
+            }
+        }
+    }
+}
