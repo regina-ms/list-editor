@@ -55,7 +55,7 @@ describe('List Editor', () => {
     await page.waitForSelector('.list-item');
   });
 
-  /* afterEach(async () => {
+  afterEach(async () => {
     await browser.close();
-  }); */
+  });
 });
